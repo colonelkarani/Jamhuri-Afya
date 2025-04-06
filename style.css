@@ -179,7 +179,7 @@ header nav a:hover::before{
         transform: scale(1);
     }
 }
-@media (max-width: 800px ) {
+@media (max-width: 2560px ) {
     #nav{
             display: none;
             flex-direction: column;
