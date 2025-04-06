@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Nav - Jamhuri Afya</title>
+  <style>
+    /* Reset & base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: #f0f4f8;
+    }
+
+    /* Header styling */
+    header {
+      background: #0083b0;
+      color: white;
+      padding: 1em 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    /* Logo styling */
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    /* Hamburger menu icon */
+    .menu-toggle {
+      font-size: 2em;
+      cursor: pointer;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle.open {
+      transform: rotate(90deg); /* Slight animation on open */
+    }
+
+    /* Mobile navigation styles */
+    nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: #00b4db;
+      animation: fadeSlide 0.3s ease forwards;
+    }
+
+    nav a {
+      color: white;
+      padding: 1em;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    nav.open {
+      display: flex;
+    }
+
+    /* Animation for the dropdown */
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Desktop style (media query) */
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+
+      nav {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: none;
+      }
+
+      nav a {
+        padding: 0 1em;
+        border: none;
+      }
+    }
+
+    /* Main content padding (so it's not hidden behind header) */
+    main {
+      margin-top: 80px;
+      padding: 2em 5%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Logo section -->
+    <div class="logo">Jamhuri Afya</div>
+
+    <!-- Hamburger toggle icon -->
+    <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Navigation links -->
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Page sections -->
+    <section id="home" style="margin-bottom: 50vh;">
+      <h2>Home</h2>
+      <p>Welcome to Jamhuri Afya. Your health, our mission.</p>
+    </section>
+
+    <section id="about" style="margin-bottom: 50vh;">
+      <h2>About</h2>
+      <p>We specialize in orthopedic and pain management solutions.</p>
+    </section>
+
+    <section id="services" style="margin-bottom: 50vh;">
+      <h2>Services</h2>
+      <p>Check out our range of medical services and expertise.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Book an appointment or reach out to us.</p>
+    </section>
+  </main>
+
+  <script>
+    // Toggle menu visibility and icon rotation
+    function toggleMenu() {
+      const nav = document.getElementById("nav");
+      const toggle = document.getElementById("menuToggle");
+
+      nav.classList.toggle("open");
+      toggle.classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>

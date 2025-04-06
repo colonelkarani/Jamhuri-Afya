@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+*{
+    font-family: "Assistant", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.home{
+    min-height: 100vh;
+    background-image: url(img/back.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    overflow: hidden;
+    position: relative;
+}
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3% 5%;
+  z-index: 9;  
+}
+.logo {
+    height:10vh; /* ✅ adjust size */
+    width: auto; /* ✅ keeps aspect ratio */
+    object-fit: contain; /* good for PNGs */
+  }
+.menu-toggle {
+    display: none;
+    height: 60px;
+    width: 50px;
+   margin-left: auto;
+   position: relative;
+   z-index: 999;
+  }
+.menu-toggle span{
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.menu-toggle span:nth-child(1){
+    top: 25%;
+    background:linear-gradient(130deg, skyblue, rgb(161, 193, 206)) ;
+}
+.menu-toggle span:nth-child(2){
+    top: 50%;
+    background:linear-gradient(130deg, skyblue, rgb(161, 193, 206)) ;
+
+}
+.menu-toggle span:nth-child(3){
+    top: 75%;
+    background:linear-gradient(130deg, skyblue, rgb(161, 193, 206)) ;
+
+}
+.menu-toggle.active span:nth-child(1){
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background:linear-gradient(130deg, red, rgb(0, 0, 0)) ;
+   }
+.menu-toggle.active span:nth-child(2){
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3){
+    top: 50%;
+    background:linear-gradient(130deg, red, rgb(0, 1, 1)) ;
+
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10%;
+    flex: 1;
+    margin-left: 10%;
+}
+#nav2{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:linear-gradient(135deg, rgba(0, 0, 0, 0.799), rgba(80, 123, 140, 0.813));
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 75vh;
+    width: 50%;
+    font-size: 1.6em;
+    gap: .5%;
+    border-radius: 0% 0% 0% 10%;
+    right: -450px;
+    transition: .3s ease;
+}
+#nav2.active{
+    right: 0;
+}
+header nav a{
+    font-size: 1em;
+    margin-left: 2%;
+    color: white;
+    position: relative; 
+    text-align: center;
+}
+header nav a::before{
+    content: '';
+    background-color: white;
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    height: 10%;
+    margin-left: 2%;
+   
+    border-radius: 3px;
+    transition: 0.4s ease;
+    transform: scaleX(0);
+}
+header nav .active::before,
+header nav a:hover::before{
+    transform: scaleX(1);
+  
+}
+
+.textbox{
+    width: 100%;
+}
+.textbox h1{
+    font-size: 4em;
+    color: rgb(103, 219, 219);
+}
+.textbox h1:nth-child(1){
+    
+    animation: slideIn 1.5s ease-out forwards;
+    color: white;
+    transform: scale(0.002);
+    transform: translateX(-100%);
+}
+.textbox h1:nth-child(2){
+    
+    animation: slideIn 1.5s ease-out forwards;
+    transform: translateX(0);
+   animation-delay: 1.5s;
+   
+   transform:  translateX(-100%);
+}
+@keyframes slideIn {
+    to {
+        transform: scale(1);
+      transform: translateX(0);
+    }
+  }
+.textbox p{
+    margin: 3% 0;
+    font-size: larger;
+    width: 100%;
+    color: rgb(251, 239, 222);
+    animation: grow 2.5s forwards 3s;
+    transform: scale(0.002);
+}
+@keyframes grow {
+    to {
+        transform: scale(1);
+    }
+}
+@media (max-width: 610px ) {
+    #nav{
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.482);
+          }
+    #nav2{
+        display: flex;
+    }
+    nav a {
+        color: white;
+        padding: 1em;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.2);
+        text-decoration: none;
+        transition: background 0.3s;
+          }
+    .textbox{
+        transform: scale(.98);
+    }
+    .menu-toggle{
+        display: flex;
+    }
+    nav.open{
+        display: flex;
+    }
+}
+@media (max-width: 534px ) {
+    header nav{
+        font-size: 0.6em;
+    }
+}
+@media (max-width: 500px ) {
+    header nav{
+        font-size: 0.75em;
+    }
+    .textbox{
+        transform: scale(.9);
+        width: 100%;
+    }
+}
+@media (max-width: 500px ) {
+    header nav{
+        font-size: 0.5em;
+
+    }
+    .textbox{
+        transform: scale(.85);
+        width: 100%;
+    }
+}
+.buttonbox{
+    display:flex;
+    justify-content: space-between;
+   
+}
+.buttonbox .btn{
+    position: relative;
+    color: aliceblue;
+    padding: 3% 8%;
+    border: 2px solid skyblue;
+    background: transparent;
+    font-size: larger;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 1s;
+    z-index: 0;
+    animation: pulse 2s cubic-bezier(0.45, 0, 0.55, 1.7) infinite;
+  }
+
+  @keyframes pulse {
+    0%   { transform: scaleY(1); }
+    25%  { transform: scaleY(1.2); }
+    50%  { transform: scaleY(0.85); }
+    75%  { transform: scaleY(1.1); }
+    100% { transform: scaleY(1); }
+  }
+.buttonbox .btn:hover{
+    color: rgb(9, 9, 220);
+    
+}
+.buttonbox .btn::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin:left ;
+    transition: 1s;
+}
+.buttonbox .btn:hover::before{
+    transform: scaleX(1);
+}
+.about{
+    min-height: 100vh;
+    background-image: url(img/scrubs.jpg);
+    background-size: cover;
+    background-position: 10% 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    overflow: hidden;
+    position: relative;
+}
