@@ -38,7 +38,7 @@ header{
     object-fit: contain; /* good for PNGs */
   }
 .menu-toggle {
-    display: none;
+   
     height: 60px;
     width: 50px;
    margin-left: auto;
@@ -84,7 +84,7 @@ header{
 }
 
 #nav{
-    display: flex;
+    display: none;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -93,7 +93,7 @@ header{
     margin-left: 10%;
 }
 #nav2{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
