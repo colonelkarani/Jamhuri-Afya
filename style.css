@@ -134,6 +134,7 @@ header nav a:hover::before{
 .textbox h1{
     font-size: 8em;
     color: rgb(103, 219, 219);
+    padding-bottom: 10%
 }
 .textbox h1:nth-child(1){
     
@@ -227,7 +228,7 @@ header nav a:hover::before{
 .buttonbox{
     display:flex;
     justify-content: space-between;
-   
+   padding-top:10%;
 }
 .buttonbox .btn{
     position: relative;
